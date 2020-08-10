@@ -47,7 +47,7 @@ def clean_config():
     _delete_dirs_safe_([os.path.join(*[proj_api, "doxygen_src"]), "output"])
     _delete_files_safe_(['index.rst', 'doxygen.conf', 'Makefile', 'make.bat'])
 
-
+#TODO add custom rsts
 def parse_sphinx_config():
     proj_rsts = ""
     for file in os.listdir(proj_api):

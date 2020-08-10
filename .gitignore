@@ -1,1 +1,7 @@
-./exhale
+/exhale/
+/tools/create-docs.sh
+/doxygen.conf
+/index.rst
+/Makefile
+/doc_src/doxygen_src/
+/output/

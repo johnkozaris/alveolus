@@ -1,7 +1,8 @@
 /exhale/
-/tools/create-docs.sh
-/doxygen.conf
-/index.rst
-/Makefile
-/doc_src/doxygen_src/
+/alveolus/tools/create-docs.sh
+/alveolus/doxygen.conf
+/alveolus/index.rst
+/alveolus/Makefile
 /output/
+/.idea/
+/doc_src/doxygen_src/

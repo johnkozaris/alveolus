@@ -9,7 +9,7 @@
 .. toctree::
  :maxdepth: @toctree_depth
 
- @toctree_include
+@toctree_include
 
 
 

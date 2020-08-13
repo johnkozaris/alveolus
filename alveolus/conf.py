@@ -11,13 +11,22 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 import subprocess
 import configparser
+import os
+from alveolus import settings
 # sys.path.insert(0, os.path.abspath('.'))
 
 # -- Project information -----------------------------------------------------
 subprocess.call('doxygen doxygen.conf', shell=True)
+
+if os.path.isfile(os.path.join(settings.WORKING_DIR, 'alveolus-config.ini')):
+    config_file = os.path.join(settings.WORKING_DIR, 'alveolus-config.ini')
+else:
+    config_file = os.path.join(settings.SOURCE_DIR, 'alveolus-config.ini')
+
 main_conf_parser = configparser.RawConfigParser()
 main_conf_parser.optionxform = str
-main_conf_parser.read('./alveolus-config.ini')
+main_conf_parser.read(config_file)
+
 project = main_conf_parser['PROJECT']['name']
 copyright = main_conf_parser['PROJECT']['copyright']
 author = main_conf_parser['PROJECT']['author']
@@ -38,7 +47,7 @@ breathe_projects = {
 breathe_default_project = project
 exhale_args = {
     # These arguments are required
-    "containmentFolder": 'doc_src/doxygen_src',
+    "containmentFolder": os.path.join(main_conf_parser['CONFIG_DIRECTORIES']['src_api'], 'doxygen_src'),
     "rootFileName": "library_root.rst",
     "rootFileTitle": "Library API",
     "doxygenStripFromPath": "..",
